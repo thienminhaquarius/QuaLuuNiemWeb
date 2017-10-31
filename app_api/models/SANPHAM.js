@@ -13,7 +13,7 @@ var binhluanSchema = new mongoose.Schema({
 
 var sanphamSchema = new mongoose.Schema({
 
-	tenSanPham:{ type:String, required:true },
+	tenSanPham:{ type:String, required:true, unique:true },
 
 	tenFileAnh:{ type:String, required:true },
 
@@ -21,9 +21,11 @@ var sanphamSchema = new mongoose.Schema({
 
 	gia:{ type:Number, required:true, min:0 },
 
-	loaiSanPham:{ type:Number, required:true },
+	loaiSanPham:{ type:String, required:true },
 
 	moTa:{ type:String },
+
+	thoiGian:{type:Date,default:Date.now},
 
 	likes:{ type:Number, default:0 },
 

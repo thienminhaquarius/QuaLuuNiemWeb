@@ -8,7 +8,7 @@ var donhangSchema = new mongoose.Schema({
 
 	soLuong:{type:Number,default:1},
 
-	diaChigiaoHang:{type:String},
+	diaChiGiaoHang:{type:String},
 
 	phuongThucThanhtoan:{type:String},
 	

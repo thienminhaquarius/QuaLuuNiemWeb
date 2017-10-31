@@ -1,22 +1,22 @@
 var mongoose=require('mongoose'); // Ma hoa mat khau
 var bcrypt  = require('bcrypt-nodejs'); //tao jsonwebtoken
 var jwt=require('jsonwebtoken');
-var ObjectId=Schema.ObjectId; // kieu du lieu id cua mongoose
+var ObjectId=mongoose.Schema.ObjectId; // kieu du lieu id cua mongoose
 
 var userSchema = new mongoose.Schema({
 	ten:{type:String,required:true},
 
-	email:{type:String,required:true},
+	email:{type:String,required:true,unique:true},
 
 	password:{type:String,required:true},
 
-	dienThoai:{type:String,required:true}
+	dienThoai:{type:String},
 
 	donHangDaMua:[ObjectId]
 });
 
 userSchema.methods.maHoaPassword=function(password){
-	return bcrypt.hashSync(password,bcrypt.genSaltSync(8),null);
+	this.password= bcrypt.hashSync(password,bcrypt.genSaltSync(8),null);
 };
 
 userSchema.methods.soSanhPassword=function(password){
