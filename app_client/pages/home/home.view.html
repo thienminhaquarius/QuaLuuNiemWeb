@@ -1,0 +1,38 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-info">
+				<div class="panel-heading text-center">
+					Thời gian bán hàng
+				</div>
+				<div class="panel-body">
+					<p>Thời gian mởi của: 7h - 21h</p>
+					<p>Ngày mở cửa: Thứ 2 - Thứ 7</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-9">
+			<div class="panel panel-info">
+				<div class="panel-heading ">
+					{{vm.pageHeader.title}}
+				</div>
+				<div class="panel-body text-center">
+					<div class="row">
+
+						<div class="col-xs-11 col-md-3 " id="sanpham" ng-repeat="sanpham in vm.data.sanphams">
+							<a href="#"><img class="img-responsive img-thumbnail" src="{{sanpham.tenFileAnh}}"></a>
+							<div class="text-center">
+								<p>{{sanpham.tenSanPham}}</p>
+								<p>{{sanpham.gia | formatPrice }}</p>
+								<p>{{sanpham.moTa}}</p>
+							</div>
+						</div>
+				
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

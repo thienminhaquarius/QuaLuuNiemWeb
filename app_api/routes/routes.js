@@ -8,7 +8,7 @@ var auth=require('../controllers/authentication');
 // User
 //router.get('/user');
 
-router.get('/moinhat',sanPham.sanPhamByThoiGian);
+router.get('/home',sanPham.sanPhamByThoiGian);
 
 router.post('/taosanpham',sanPham.taoSanPham);
 

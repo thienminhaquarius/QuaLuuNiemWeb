@@ -7,7 +7,14 @@ var sendJsonRespone=function(res,status,content){
 };
 
 exports.sanPhamByThoiGian=function(req,res){
-	SanPham.find().sort('-thoiGian').limit(20).select('-thoiGian')
+	var soluong=parseInt(req.query.soluong);
+	if(!soluong)
+	{
+		sendJsonRespone(res,404,{"message":"soluong not found"});
+		return;
+	}
+
+	SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia loaiSanPham moTa ')
 	.exec(function(error,sanphams){
 		if(error){
 			return sendJsonRespone(res,400,error)

@@ -25,6 +25,8 @@ var sanphamSchema = new mongoose.Schema({
 
 	moTa:{ type:String },
 
+	moTaChiTiet:{type:String},
+
 	thoiGian:{type:Date,default:Date.now},
 
 	likes:{ type:Number, default:0 },
