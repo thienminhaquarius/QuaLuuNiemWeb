@@ -6,8 +6,13 @@
 			return $http.get('/api/home?soluong='+soluong);
 		};
 
+		var getSanPhamById=function(idsanpham){
+			return $http.get('/api/sanpham/'+idsanpham);
+		};
+
 		return {
-			getSanPhamByDate:getSanPhamByDate
+			getSanPhamByDate:getSanPhamByDate,
+			getSanPhamById:getSanPhamById
 		};
 	}
 })();

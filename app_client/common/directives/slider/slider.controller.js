@@ -4,7 +4,6 @@
 	function sliderCtr($interval){
 		var vm=this;
 		vm.thanhtoan='/images/thanhtoan/thanhtoan.jpg';
-		vm.vanchuyen='/images/thanhtoan/vanchuyen.jpg';
 		vm.slider='/images/slider/slide1.png';
 		vm.slideToggle=true;
 		$interval(function(){

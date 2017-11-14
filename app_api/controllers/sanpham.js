@@ -43,3 +43,21 @@ exports.taoSanPham=function(req,res){
 		}
 	});
 }
+
+exports.chiTietSanPham=function(req,res){
+	if(req.params&&req.params.idSanPham)
+	{
+		SanPham.findById(req.params.idSanPham).exec(function(err,sanpham){
+			if(err)
+			{
+				return sendJsonRespone(res,400,err);//unsuccessfull request
+			}else if(!sanpham){
+				return sendJsonRespone(res,400,{'message':'idSanPham not found'})
+			}
+			sendJsonRespone(res,200,sanpham);
+		});
+	}else
+	{
+		sendJsonRespone(res,404,{'message':'No idSanPham in request'})
+	}
+}

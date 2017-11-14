@@ -1,0 +1,101 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-info">
+				<div class="panel-heading text-center">
+					Thời gian bán hàng
+				</div>
+				<div class="panel-body">
+					<p>Thời gian mởi của: 7h - 21h</p>
+					<p>Ngày mở cửa: Thứ 2 - Thứ 7</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-9">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					<img class="img-responsive img-rounded" ng-src="{{vm.sanpham.tenFileAnh}}">
+					<hr>
+					
+					<a href="#" class="btn btn-primary">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+						Like {{vm.sanpham.likes}}
+					</a>
+					&nbsp; 
+					<a href="#" class="badge badge-pill badge-success">
+						<span class="fa fa-eye"></span>
+						Lượt xem: {{vm.sanpham.likes}}
+					</a>
+					&nbsp;
+					&nbsp;
+					<span class="badge badge-pill badge-success">Đánh giá:</span>
+					****** 
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<H4>{{vm.sanpham.tenSanPham}}</H4>
+					<ul class="list-group">
+					<li class="list-group-item"><h4>Giá: <span class="label label-info">{{vm.sanpham.gia|formatPrice}}</span></h4></li>
+					<li class="list-group-item">Bao bì sản phẩm có thể thay đổi theo từn đợt hàng</p></li>
+					<li class="list-group-item">
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ hàng</button>
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</button>
+					</li>
+				</ul>
+					
+				</div>
+			</div>
+			<div class="row">
+				<br>
+				<H4>MÔ TẢ SẢN PHẨM</H4>
+				<ul class="list-group">
+					<li class="list-group-item"><p>{{vm.sanpham.moTa}}</p></li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">KHÁCH HÀNG NHẬN XÉT</h4>
+					</div>
+					<div class="panel-body">
+				
+						<div class="media">
+							<div class="row">
+								<div class="col-xs-5 col-md-2 text-center">
+									<a href="#">
+										<img width="75px" height="75px" class="img-circle " src="/avatar/user.png">
+									</a>
+									<br>
+									<STRONG>Ten khach hang</STRONG>
+								</div>
+								<div class="col-xs-7 col-md-10">
+									<strong class="media-heading">Tieu de comment</strong><small class="text-muted">  2 gio truoc</small>
+								<p>vong tay dep qua</p>
+								</div>
+							</div>
+							<hr>
+						</div>
+						
+						<div class="media">
+							<div class="row">
+								<div class="col-xs-5 col-md-2 text-center">
+									<a href="#">
+										<img width="75px" height="75px" class="img-circle " src="/avatar/user.png">
+									</a>
+									<br>
+									<STRONG>Ten khach hang</STRONG>
+								</div>
+								<div class="col-xs-7 col-md-10">
+									<strong class="media-heading">Tieu de comment</strong><small class="text-muted">  2 gio truoc</small>
+								<p>vong tay dep qua</p>
+								</div>
+							</div>
+							<hr>
+						</div>
+				
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

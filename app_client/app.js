@@ -8,7 +8,23 @@ var config=function($routeProvider,$locationProvider)
 		templateUrl:'/pages/home/home.view.html',
 		controller:'homeCtr',
 		controllerAs:'vm'
+	})
+	.when('/login',{
+		templateUrl:'/pages/login/login.view.html',
+		controller:'loginCtr',
+		controllerAs:'vm'
+	})
+	.when('/register',{
+		templateUrl:'/pages/register/register.view.html',
+		controller:'registerCtr',
+		controllerAs:'vm'
+	})
+	.when('/sanpham/:sanphamid',{
+		templateUrl:'/pages/chitietsanpham/chitietsanpham.view.html',
+		controller:'chitietsanphamCtr',
+		controllerAs:'vm'
 	});
+	;
 
 	$locationProvider.html5Mode({
 		enabled:true,

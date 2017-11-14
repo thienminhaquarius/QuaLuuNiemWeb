@@ -29,9 +29,9 @@ userSchema.methods.taoJwt=function(){
 	return jwt.sign({
 		_id:this.id,
 		email:this.email,
-		name:this.name,
+		name:this.ten,
 		exp:parseInt(hetHang.getTime()/1000) // tinh ra tong so giay het han 
-	}, 'maJsonWebToken');
+	}, 'maJsonWebToken'); //ten secret
 }
 
 

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="#" class="navbar-brand">Quà Lưu Niệm</a>
+			<a href="/" class="navbar-brand">Quà Lưu Niệm</a>
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -17,7 +17,7 @@
 						<li><a href="#"><h3>Vòng tay</h3></a></li>
 						<li><a href="#"><h3>Đá phong thủy</h3></a></li>
 						<li><a href="#"><h3>Vật dụng trưng bày</h3></a></li>
-						<li><a href="#"><h3>Đồ chơi trẻ em</h3></a></li>
+				
 						<li><a href="#"><h3>Trang sức</h3></a></li>
 						<li><a href="#"><h3>Tranh ảnh</h3></a></li>
 					</ul>
@@ -28,17 +28,16 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-hide="true"><a href="#"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-				<li ng-show="true" class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">UserName &nbsp;&nbsp;<span class="caret"></span></a>
+				<li ng-hide="isLoggedIn"><a href="/#!login/?page={{currentPath}}"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+				<li ng-show="isLoggedIn" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.name}} &nbsp;&nbsp;<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Đang vận chuyển hàng</a></li>
 						<li><a href="#">Xem hàng đã mua</a></li>
-						<li><a href="#">Đăng xuất</a></li>
+						<li><a href="#" ng-click="navvm.logout()">Đăng xuất</a></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
-
 	</div>
 </nav>
