@@ -1,5 +1,17 @@
-footer{
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+	background: white;
 
-	background-color: #f2f2f2;
-     padding: 25px;
+}
+
+.row.display-flex > [class*='col-'] {
+	background: white;
+	
+	padding-top: 5px;
+	border: 1px solid #f0f0f0;
+}
+.row.display-flex > [class*='col-']:hover{
+	background: #f9fdff;
+	border: 1px solid #a4ddff;
 }

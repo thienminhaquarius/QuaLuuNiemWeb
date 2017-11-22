@@ -21,14 +21,16 @@
 			<div class="row">
 				<h3 style="margin-top: 0; margin-bottom: 20px; margin-left: 10px">{{vm.title}}</h3>
 			</div>
-			<div class="row">
-				<div class="col-xs-12 col-md-3 border-top-0 " id="sanpham" ng-repeat="sanpham in vm.data.sanphams">
+			<div class="row display-flex">
+				<div class="col-xs-6 col-md-3 text-center" ng-repeat="sanpham in vm.data.sanphams">
 					<a href="/#!sanpham/{{sanpham._id}}"><img class="img-responsive img-rounded" ng-src='{{sanpham.tenFileAnh}}'></a>
-					<div class="text-center">
-						<p>{{sanpham.tenSanPham}}</p>
-						<p>{{sanpham.gia | formatPrice}}</p>
-						<p>{{sanpham.moTa}}</p>
-					</div>
+					<hr>
+					<strong>{{sanpham.tenSanPham}}</strong>
+					<h4 style="color: #ff6e25">{{sanpham.gia | formatPrice}}</h4>
+					<p>
+						<Strong style="color:#337ab7" rating-stars rating='sanpham.rating'></strong>
+					</p>
+					<h4><small>({{sanpham.reviews.length}} nhận xét)</small></h4>	
 				</div>
 			</div>
 		</div>

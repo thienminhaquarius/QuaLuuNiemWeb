@@ -17,7 +17,6 @@
 						<li><a href="#"><h3>Vòng tay</h3></a></li>
 						<li><a href="#"><h3>Đá phong thủy</h3></a></li>
 						<li><a href="#"><h3>Vật dụng trưng bày</h3></a></li>
-				
 						<li><a href="#"><h3>Trang sức</h3></a></li>
 						<li><a href="#"><h3>Tranh ảnh</h3></a></li>
 					</ul>
@@ -27,17 +26,20 @@
 				<li><a href="#">Về chúng tôi</a></li>
 			</ul>
 
+			<a href="#" class="btn btn-primary navbar-btn navbar-right"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng <span class="badge">1</span></a>
+			
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-hide="isLoggedIn"><a href="/#!login/?page={{currentPath}}"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
 				<li ng-show="isLoggedIn" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.name}} &nbsp;&nbsp;<span class="caret"></span></a>
+
 					<ul class="dropdown-menu">
 						<li><a href="#">Đang vận chuyển hàng</a></li>
 						<li><a href="#">Xem hàng đã mua</a></li>
 						<li><a href="#" ng-click="navvm.logout()">Đăng xuất</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul>	
 		</div>
 	</div>
 </nav>

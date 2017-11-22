@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
 
 	dienThoai:{type:String},
 
-	donHangDaMua:[ObjectId]
+	donHangDaMua:[ObjectId],
+	gioHang:[ObjectId]
 });
 
 userSchema.methods.maHoaPassword=function(password){

@@ -7,8 +7,13 @@
 	}
 	function formatPrice($filter){
 		return function(price){
+
 			var priceChange,unit;
 			if(_isNumberic(price)){
+				if(price<0)
+				{
+					return '?';
+				}
 				priceChange=price;
 				unit=' đ'
 				if(priceChange<10000)

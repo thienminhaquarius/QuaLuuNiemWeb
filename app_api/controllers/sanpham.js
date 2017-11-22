@@ -14,7 +14,7 @@ exports.sanPhamByThoiGian=function(req,res){
 		return;
 	}
 
-	SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia loaiSanPham moTa ')
+	SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia loaiSanPham moTa rating reviews ')
 	.exec(function(error,sanphams){
 		if(error){
 			return sendJsonRespone(res,400,error)

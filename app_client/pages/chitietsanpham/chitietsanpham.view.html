@@ -1,4 +1,9 @@
 <div class="container">
+	<ol class="breadcrumb">
+		<li><a href="/">Trang chủ</a></li>
+		<li><a href="#">{{vm.sanpham.loaiSanPham}}</a></li>
+		<li class="active">{{vm.sanpham.tenSanPham}}</li>
+	</ol>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="panel panel-info">
@@ -16,20 +21,20 @@
 				<div class="col-xs-12 col-md-6">
 					<img class="img-responsive img-rounded" ng-src="{{vm.sanpham.tenFileAnh}}">
 					<hr>
-					
 					<a href="#" class="btn btn-primary">
 						<span class="glyphicon glyphicon-thumbs-up"></span>
 						Like {{vm.sanpham.likes}}
 					</a>
-					&nbsp; 
+					&nbsp;
 					<a href="#" class="badge badge-pill badge-success">
 						<span class="fa fa-eye"></span>
 						Lượt xem: {{vm.sanpham.likes}}
 					</a>
 					&nbsp;
-					&nbsp;
 					<span class="badge badge-pill badge-success">Đánh giá:</span>
-					****** 
+					<span style="color:#ffc120">
+						<Strong rating-stars rating='vm.sanpham.rating'></strong>
+					</span>
 				</div>
 				<div class="col-xs-12 col-md-6">
 					<H4>{{vm.sanpham.tenSanPham}}</H4>
@@ -38,7 +43,7 @@
 					<li class="list-group-item">Bao bì sản phẩm có thể thay đổi theo từn đợt hàng</p></li>
 					<li class="list-group-item">
 						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ hàng</button>
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</button>
+						<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</button>
 					</li>
 				</ul>
 					
@@ -52,46 +57,33 @@
 				</ul>
 			</div>
 			<div class="row">
+				<a ng-show="vm.isLoggedIn" ng-click="vm.popupReviewForm()" class="btn btn-success pull-right">Viết Nhận xét</a>
+				<a ng-hide="vm.isLoggedIn" href="/#!login?page={{currentPath}}" class="btn btn-danger pull-right">Đăng nhập để nhận xét</a>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">KHÁCH HÀNG NHẬN XÉT</h4>
+						<p class="panel-title">KHÁCH HÀNG NHẬN XÉT</p>
 					</div>
 					<div class="panel-body">
 				
-						<div class="media">
+						<div class="media" ng-repeat="review in vm.sanpham.reviews| orderBy:'thoiGian':true">
 							<div class="row">
 								<div class="col-xs-5 col-md-2 text-center">
 									<a href="#">
-										<img width="75px" height="75px" class="img-circle " src="/avatar/user.png">
+										<img width="50px" height="50px" class="img-circle " src="/avatar/user.png">
 									</a>
 									<br>
-									<STRONG>Ten khach hang</STRONG>
+									<STRONG>{{review.nguoiBinhLuan}}</STRONG>
 								</div>
 								<div class="col-xs-7 col-md-10">
-									<strong class="media-heading">Tieu de comment</strong><small class="text-muted">  2 gio truoc</small>
-								<p>vong tay dep qua</p>
+									<strong class="media-heading"><span style="color:#ffc120">
+										<Strong rating-stars rating='review.rating'></strong>
+									</span></strong>
+									<small class="text-muted">  {{review.thoiGian | date:' h:mma d-MM-yyyy'}}</small>		
+									<p>{{review.noiDung}}</p>
 								</div>
 							</div>
 							<hr>
 						</div>
-						
-						<div class="media">
-							<div class="row">
-								<div class="col-xs-5 col-md-2 text-center">
-									<a href="#">
-										<img width="75px" height="75px" class="img-circle " src="/avatar/user.png">
-									</a>
-									<br>
-									<STRONG>Ten khach hang</STRONG>
-								</div>
-								<div class="col-xs-7 col-md-10">
-									<strong class="media-heading">Tieu de comment</strong><small class="text-muted">  2 gio truoc</small>
-								<p>vong tay dep qua</p>
-								</div>
-							</div>
-							<hr>
-						</div>
-				
 					</div>
 				</div>
 			</div>

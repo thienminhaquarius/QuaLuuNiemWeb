@@ -1,5 +1,5 @@
 (function(){
-angular.module('QuaLuuNiemApp',['ngRoute']);
+angular.module('QuaLuuNiemApp',['ngRoute','ui.bootstrap']);
 
 var config=function($routeProvider,$locationProvider)
 {
@@ -31,7 +31,6 @@ var config=function($routeProvider,$locationProvider)
 		requireBase:false
 	});
 };
-
 
 angular.module('QuaLuuNiemApp').config(['$routeProvider','$locationProvider',config]);
 })();

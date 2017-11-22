@@ -1,11 +1,13 @@
 var mongoose=require('mongoose');
 
 var binhluanSchema = new mongoose.Schema({
-	nguoiBinhLuan:{type:String, default:'Anonymous'},
+	nguoiBinhLuan:{type:String, require:true},
 
 	noiDung:{type:String, required:true},
 
 	thoiGian:{type:Date,default:Date.now},
+	
+	rating:{type:Number,default:3,min:0,max:5},
 
 	likes:{ type:Number, default:0}
 
@@ -19,6 +21,8 @@ var sanphamSchema = new mongoose.Schema({
 
 	soLuong:{ type:Number, required:true, min:0 },
 
+	rating:{type:Number,default:0,min:0,max:5},
+
 	gia:{ type:Number, required:true, min:0 },
 
 	loaiSanPham:{ type:String, required:true },
@@ -31,8 +35,7 @@ var sanphamSchema = new mongoose.Schema({
 
 	likes:{ type:Number, default:0 },
 
-	binhLuan:[binhluanSchema]
-
+	reviews:[binhluanSchema]
 
 });
 
