@@ -1,3 +1,4 @@
+/*Home flex box*/
 .row.display-flex {
 	display: flex;
 	flex-wrap: wrap;
@@ -14,4 +15,28 @@
 .row.display-flex > [class*='col-']:hover{
 	background: #f9fdff;
 	border: 1px solid #a4ddff;
+}
+
+
+/*footer*/
+footer{
+	margin-top: 30px;
+}
+#footer{
+	color: #a7a7a7;
+	padding: 25px
+}
+#footercontainer{
+	background: #323c4e;
+}
+#footercontainer2{
+	background: #28303e;
+	color: #a7a7a7;
+	padding: 20px;
+}
+#mapicon{
+	color: #a7a7a7;
+	border: 1px solid #a7a7a7;
+	padding: 7px;
+	margin-left: 5px;
 }
