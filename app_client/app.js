@@ -23,7 +23,10 @@ var config=function($routeProvider,$locationProvider)
 		templateUrl:'/pages/chitietsanpham/chitietsanpham.view.html',
 		controller:'chitietsanphamCtr',
 		controllerAs:'vm'
-	});
+	})
+	.when('/vechungtoi',{
+		templateUrl:'/pages/vechungtoi/vechungtoi.view.html'
+	})
 	;
 
 	$locationProvider.html5Mode({
