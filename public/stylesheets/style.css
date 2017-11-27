@@ -25,6 +25,13 @@
 	margin-bottom: 30px;
 }
 
+/*Thoi gian ban hang bar*/
+@media screen and (max-width:768px ){
+	#thoigianbanhang{
+		display: none;
+	}
+}
+
 
 /*footer*/
 footer{

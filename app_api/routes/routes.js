@@ -9,9 +9,12 @@ var auth=jwt({
 var sanPham=require('../controllers/sanpham');
 var authCtr=require('../controllers/authentication');
 var reviews=require('../controllers/reviews');
+var user=require('../controllers/user');
 // User
-//router.get('/user');
+router.get('/user/:userEmail/giohang',user.gioHangByUserEmail);
+router.post('/user/:userEmail/giohang',user.addGioHangByUserEmail);
 
+//san pham
 router.get('/home',sanPham.sanPhamByThoiGian);
 router.get('/sanpham/:idSanPham',sanPham.chiTietSanPham);
 

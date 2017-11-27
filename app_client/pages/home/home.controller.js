@@ -7,7 +7,7 @@
 
 		vm.message='Đang load sản phẩm...';
 
-		dataCRUD.getSanPhamByDate(20)
+		dataCRUD.getSanPhamByDate(12)
 		.then(function(respone){
 			//alert(JSON.stringify(respone));
 			vm.message=respone.data.length>0 ? "" :"Không có sản phầm nào";

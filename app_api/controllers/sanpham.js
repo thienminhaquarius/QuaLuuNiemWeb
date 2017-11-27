@@ -52,7 +52,7 @@ exports.chiTietSanPham=function(req,res){
 			{
 				return sendJsonRespone(res,400,err);//unsuccessfull request
 			}else if(!sanpham){
-				return sendJsonRespone(res,400,{'message':'idSanPham not found'})
+				return sendJsonRespone(res,404,{'message':'khong tim duoc san pham'})
 			}
 			sendJsonRespone(res,200,sanpham);
 		});

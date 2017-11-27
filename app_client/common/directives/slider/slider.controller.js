@@ -10,7 +10,7 @@
 			if(vm.slideToggle)
 			{
 				vm.slider='/images/slider/slide2.png';
-				vm.slideToggle=true;
+				vm.slideToggle=false;
 			}else
 			{
 				vm.slider='/images/slider/slide1.png';

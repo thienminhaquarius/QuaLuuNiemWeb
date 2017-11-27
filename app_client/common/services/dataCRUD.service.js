@@ -17,11 +17,19 @@
 				}
 			});
 		};
+		var gioHangByUserEmail=function(userEmail){
+			return $http.get('/api/user/'+userEmail+'/giohang');
+		}
+		var addGioHangByUserEmail=function(userEmail,data){
+			return $http.post('/api/user/'+userEmail+'/giohang',data);
+		}
 
 		return {
 			getSanPhamByDate:getSanPhamByDate,
 			getSanPhamById:getSanPhamById,
-			addReviewBySanPhamId:addReviewBySanPhamId
+			addReviewBySanPhamId:addReviewBySanPhamId,
+			gioHangByUserEmail:gioHangByUserEmail,
+			addGioHangByUserEmail:addGioHangByUserEmail
 		};
 	}
 })();

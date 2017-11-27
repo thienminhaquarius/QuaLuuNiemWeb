@@ -5,44 +5,56 @@
 		<li class="active">{{vm.sanpham.tenSanPham}}</li>
 	</ol>
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3" id="thoigianbanhang">
 			<div class="panel panel-info">
 				<div class="panel-heading text-center">
 					Thời gian bán hàng
 				</div>
 				<div class="panel-body">
-					<p>Thời gian mởi của: 7h - 21h</p>
+					<p><strong>Thời gian mở cửa</strong></p>
+					<p><li>Sáng: 08:30 - 11:00</li></p>
+					<p><li>Chiều: 13:30 - 18:00</li></p>
 					<p>Ngày mở cửa: Thứ 2 - Thứ 7</p>
+					<hr>
+					<p><strong>Thời gian bảo hành</strong></p>
+					<p><li>Sáng: 08:30 - 11:00</li></p>
+					<p><li>Chiều: 13:30 - 18:00</li></p>
+					<p>Ngày bảo hành: Thứ 2 - Thứ 6</p>
+					<hr>
 				</div>
+				<a href="#"><img class="img-thumbnail" src="/images/thanhtoan/vanchuyen.jpg"></a>
+				<a href="#" ><img class="img-thumbnail" src="/images/thanhtoan/quydinhbaohanh.jpg"></a>
+
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-9">
 			<div class="row">
-				<div class="col-xs-12 col-md-6">
-					<img class="img-responsive img-rounded" ng-src="{{vm.sanpham.tenFileAnh}}">
-					<hr>
-					<a href="#" class="btn btn-primary">
-						<span class="glyphicon glyphicon-thumbs-up"></span>
-						Like {{vm.sanpham.likes}}
-					</a>
-					&nbsp;
-					<a href="#" class="badge badge-pill badge-success">
-						<span class="fa fa-eye"></span>
-						Lượt xem: {{vm.sanpham.likes}}
-					</a>
-					&nbsp;
-					<span class="badge badge-pill badge-success">Đánh giá:</span>
-					<span style="color:#ffc120">
-						<Strong rating-stars rating='vm.sanpham.rating'></strong>
-					</span>
+				<div class="col-xs-12 col-md-6 text-center">
+					<p><img class="img-responsive img-rounded" ng-src="{{vm.sanpham.tenFileAnh}}"></p>
+					<div class="col-xs-12 col-md-7" style="margin-top: 5px;">
+						<a href="#" class="btn btn-primary">
+							<span class="badge">Like {{vm.sanpham.likes}}</span>
+						</a>
+						<a href="#" class="btn btn-primary">
+							<span class="badge">Lượt xem: {{vm.sanpham.likes}}</span>
+						</a>
+						
+					</div>
+					<div class="col-xs-12 col-md-5" style="margin-top: 5px;">
+						<a href="#" class="btn btn-primary">
+							<span class="badge" >
+							Đánh giá: <Strong style="color:#ffc120" rating-stars rating='vm.sanpham.rating'></strong>
+						</span>
+						</a>
+					</div>
 				</div>
 				<div class="col-xs-12 col-md-6">
-					<H4>{{vm.sanpham.tenSanPham}}</H4>
+					<H3 >{{vm.sanpham.tenSanPham}}</H3>
 					<ul class="list-group">
-					<li class="list-group-item"><h4>Giá: <span class="label label-info">{{vm.sanpham.gia|formatPrice}}</span></h4></li>
+					<li class="list-group-item"><h4>Giá: <span style="color: #ff6e25">{{vm.sanpham.gia|formatPrice}}</span></h4></li>
 					<li class="list-group-item">Bao bì sản phẩm có thể thay đổi theo từn đợt hàng</p></li>
 					<li class="list-group-item">
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ hàng</button>
+						<button ng-click="vm.themVaoGioHang()" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ hàng</button>
 						<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</button>
 					</li>
 				</ul>
@@ -57,8 +69,8 @@
 				</ul>
 			</div>
 			<div class="row">
-				<a ng-show="vm.isLoggedIn" ng-click="vm.popupReviewForm()" class="btn btn-success pull-right">Viết Nhận xét</a>
-				<a ng-hide="vm.isLoggedIn" href="/#!login?page={{currentPath}}" class="btn btn-danger pull-right">Đăng nhập để nhận xét</a>
+				<a  ng-show="vm.isLoggedIn" ng-click="vm.popupReviewForm()" class="btn btn-success pull-right">Viết Nhận xét</a>
+				<a ng-hide="vm.isLoggedIn" href="/#!login?page={{currentPath}}" class="btn btn-danger pull-right">Đăng nhập để được nhận xét</a>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<p class="panel-title">KHÁCH HÀNG NHẬN XÉT</p>
