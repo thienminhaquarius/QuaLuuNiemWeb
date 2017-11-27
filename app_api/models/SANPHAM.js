@@ -34,6 +34,7 @@ var sanphamSchema = new mongoose.Schema({
 	thoiGian:{type:Date,default:Date.now},
 
 	likes:{ type:Number, default:0 },
+	luotXem:{type:Number,default:0},
 
 	reviews:[binhluanSchema]
 

@@ -6,6 +6,7 @@
 		var vm=this;
 		vm.message='Đang load sản phẩm...';
 		vm.sanphamid=$routeParams.sanphamid;
+		vm.disable=false;
 		vm.isLoggedIn=authentication.isLoggedIn();
 
 		dataCRUD.getSanPhamById(vm.sanphamid)
@@ -16,6 +17,14 @@
 			console.log(err);
 		});
 
+		vm.like=function(){
+			vm.disable=true;
+			dataCRUD.addLike(vm.sanphamid)
+			.then(function(respone){
+				vm.sanpham.likes=respone.data;
+
+			});
+		}
 		//them san pham vao gio hang
 		vm.themVaoGioHang=function(){
 			if(!vm.isLoggedIn){	//chua dang nhap su dung fakeUser

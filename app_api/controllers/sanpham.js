@@ -45,6 +45,7 @@ exports.taoSanPham=function(req,res){
 }
 
 exports.chiTietSanPham=function(req,res){
+
 	if(req.params&&req.params.idSanPham)
 	{
 		SanPham.findById(req.params.idSanPham).exec(function(err,sanpham){
@@ -54,10 +55,44 @@ exports.chiTietSanPham=function(req,res){
 			}else if(!sanpham){
 				return sendJsonRespone(res,404,{'message':'khong tim duoc san pham'})
 			}
-			sendJsonRespone(res,200,sanpham);
+			sanpham.luotXem=sanpham.luotXem+1;
+			sanpham.save(function(err,sanpham){
+				if(err)
+				{
+					console.log(err);
+					sendJsonRespone(res,400,err);
+					return;
+				}
+				sendJsonRespone(res,200,sanpham);
+			});
+			
 		});
 	}else
 	{
 		sendJsonRespone(res,404,{'message':'No idSanPham in request'})
 	}
-}
+};
+exports.like=function(req,res){
+	console.log('den day');
+	if(req.params&&req.params.idSanPham){
+		SanPham.findById(req.params.idSanPham).exec(function(err,sanpham){
+			if(err)
+			{
+				return sendJsonRespone(res,400,err);//unsuccessfull request
+			}else if(!sanpham){
+				return sendJsonRespone(res,404,{'message':'khong tim duoc san pham'})
+			}
+			sanpham.likes=sanpham.likes+1;
+			sanpham.save(function(err,sanpham){
+				if(err){
+					console.log(err);
+					sendJsonRespone(res,400,err);
+					return;
+				}
+				sendJsonRespone(res,200,sanpham.likes);
+			});
+		});
+	}else{
+		sendJsonRespone(res,404,{'message':'No idSanPham in request'});
+	}
+};

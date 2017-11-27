@@ -19,17 +19,20 @@
 		};
 		var gioHangByUserEmail=function(userEmail){
 			return $http.get('/api/user/'+userEmail+'/giohang');
-		}
+		};
 		var addGioHangByUserEmail=function(userEmail,data){
 			return $http.post('/api/user/'+userEmail+'/giohang',data);
-		}
-
+		};
+		var addLike=function(sanphamid){
+			return $http.post('/api/sanpham/'+sanphamid+'/like');
+		};
 		return {
 			getSanPhamByDate:getSanPhamByDate,
 			getSanPhamById:getSanPhamById,
 			addReviewBySanPhamId:addReviewBySanPhamId,
 			gioHangByUserEmail:gioHangByUserEmail,
-			addGioHangByUserEmail:addGioHangByUserEmail
+			addGioHangByUserEmail:addGioHangByUserEmail,
+			addLike:addLike
 		};
 	}
 })();

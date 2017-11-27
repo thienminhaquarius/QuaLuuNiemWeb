@@ -18,6 +18,7 @@ router.post('/user/:userEmail/giohang',user.addGioHangByUserEmail);
 router.get('/home',sanPham.sanPhamByThoiGian);
 router.get('/sanpham/:idSanPham',sanPham.chiTietSanPham);
 
+router.post('/sanpham/:idSanPham/like',sanPham.like);
 router.post('/taosanpham',sanPham.taoSanPham);
 router.post('/sanpham/:idSanPham/review',auth,reviews.reviewCreateOne);
 

@@ -29,24 +29,29 @@
 		</div>
 		<div class="col-xs-12 col-md-9">
 			<div class="row">
-				<div class="col-xs-12 col-md-6 text-center">
+				<div class="col-xs-12 col-md-6">
 					<p><img class="img-responsive img-rounded" ng-src="{{vm.sanpham.tenFileAnh}}"></p>
-					<div class="col-xs-12 col-md-7" style="margin-top: 5px;">
+					<p>
+						<button type="button" class="btn btn-primary " ng-disabled="vm.disable" ng-click="vm.like()">
+          					<span class="glyphicon glyphicon-thumbs-up"></span>
+       					</button>
 						<a href="#" class="btn btn-primary">
-							<span class="badge">Like {{vm.sanpham.likes}}</span>
+							<span class="badge" >Like: <span style="color: red;">{{vm.sanpham.likes}}</span></span>
 						</a>
-						<a href="#" class="btn btn-primary">
-							<span class="badge">Lượt xem: {{vm.sanpham.likes}}</span>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="#" class="btn btn-primary pull-right">
+							<span class="badge">Lượt xem: 
+								<span style="color: green;">{{vm.sanpham.luotXem}}</span>
+							</span>
 						</a>
-						
-					</div>
-					<div class="col-xs-12 col-md-5" style="margin-top: 5px;">
+					</p>
+					<p>
 						<a href="#" class="btn btn-primary">
 							<span class="badge" >
 							Đánh giá: <Strong style="color:#ffc120" rating-stars rating='vm.sanpham.rating'></strong>
 						</span>
 						</a>
-					</div>
+					<p>
 				</div>
 				<div class="col-xs-12 col-md-6">
 					<H3 >{{vm.sanpham.tenSanPham}}</H3>
