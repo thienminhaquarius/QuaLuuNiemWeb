@@ -73,7 +73,7 @@ exports.chiTietSanPham=function(req,res){
 	}
 };
 exports.like=function(req,res){
-	console.log('den day');
+
 	if(req.params&&req.params.idSanPham){
 		SanPham.findById(req.params.idSanPham).exec(function(err,sanpham){
 			if(err)

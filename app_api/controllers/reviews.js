@@ -59,21 +59,19 @@ function doAddReview(req,res,sanpham,userName){
 			if(err){
 				senJsonRespond(res,400,err);
 			}else{
-				updateAverageRating(sanpham._id);
-				thisReview=sanpham.reviews[sanpham.reviews.length-1];
-				senJsonRespond(res,201,thisReview);
+				updateAverageRating(sanpham._id,senJsonRespond,res);
 			}
 		});
 	}
 }
-function updateAverageRating(sanphamid){
+function updateAverageRating(sanphamid,callback,res){
 	SanPham.findById(sanphamid).select('rating reviews').exec(function(err,sanpham){
 		if(!err){
-			doSetAverageRating(sanpham);
+			doSetAverageRating(sanpham,callback,res);
 		}
 	});
 }
-function doSetAverageRating(sanpham){
+function doSetAverageRating(sanpham,callback,res){
 	var i, reviewCount,ratingAverage,ratingTotal;
 	if(sanpham.reviews && sanpham.reviews.length >0){
 		reviewCount=sanpham.reviews.length;
@@ -82,12 +80,21 @@ function doSetAverageRating(sanpham){
 			ratingTotal=ratingTotal+sanpham.reviews[i].rating;
 		}
 		ratingAverage=parseInt(ratingTotal/reviewCount,10);
+		var temprating=sanpham.rating;
 		sanpham.rating=ratingAverage;
 		sanpham.save(function(err){
 			if(err){
 				console.log(err);
+				var reviewAndRatingStarsUpdated={review:'',rating:0};
+				reviewAndRatingStarsUpdated.review=sanpham.reviews[sanpham.reviews.length-1];
+				reviewAndRatingStarsUpdated.rating=temprating;
+				callback(res,201,reviewAndRatingStarsUpdated);
 			}else{
 				console.log("Average rating updated: ",ratingAverage);
+				var reviewAndRatingStarsUpdated={review:'',rating:0};
+				reviewAndRatingStarsUpdated.review=sanpham.reviews[sanpham.reviews.length-1];
+				reviewAndRatingStarsUpdated.rating=sanpham.rating;
+				callback(res,201,reviewAndRatingStarsUpdated);
 			}
 		});
 	}

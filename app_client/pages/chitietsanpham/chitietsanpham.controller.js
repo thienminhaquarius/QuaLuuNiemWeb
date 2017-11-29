@@ -71,7 +71,8 @@
 			});
 			// comment tra ve tu reviewModalCtr
 			modalInstance.result.then(function(data){
-				vm.sanpham.reviews.push(data);
+				vm.sanpham.reviews.push(data.review);
+				vm.sanpham.rating=data.rating;
 			});
 		}
 	}

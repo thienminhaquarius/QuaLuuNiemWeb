@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname,'app_client')));
 app.use(passport.initialize());
 // router
 app.use('/api',routesApi);
+//app.use('/sanpham/:id',routesApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
