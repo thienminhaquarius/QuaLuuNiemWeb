@@ -96,3 +96,4 @@ exports.like=function(req,res){
 		sendJsonRespone(res,404,{'message':'No idSanPham in request'});
 	}
 };
+

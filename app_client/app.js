@@ -27,6 +27,11 @@ var config=function($routeProvider,$locationProvider)
 	.when('/vechungtoi',{
 		templateUrl:'/pages/vechungtoi/vechungtoi.view.html'
 	})
+	.when('/muangay/:sanphamid',{
+		templateUrl:'/pages/muangay/muangay.view.html',
+		controller:'muaNgay',
+		controllerAs:'vm'
+	})
 	;
 
 	$locationProvider.html5Mode({

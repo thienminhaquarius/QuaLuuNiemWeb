@@ -62,7 +62,7 @@
 					
 					<div style="margin-top: 20px;"><button class=" btn btn-primary" ng-click="vm.themVaoGioHang()" type="submit" ><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
 					&nbsp;&nbsp;
-					<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</button></div>
+					<a class="btn btn-success" href="/#!muangay/{{vm.sanpham._id}}"><span class="glyphicon glyphicon-ok-sign"></span> Mua ngay</a></div>
 
 
 				</div>
@@ -96,7 +96,7 @@
 									<strong class="media-heading"><span style="color:#ffc120">
 										<Strong rating-stars rating='review.rating'></strong>
 									</span></strong>
-									<small class="text-muted">  {{review.thoiGian | date:' h:mma d-MM-yyyy'}}</small>		
+									<small class="text-muted">  {{review.thoiGian | formatTime}}</small>		
 									<p>{{review.noiDung}}</p>
 								</div>
 							</div>
