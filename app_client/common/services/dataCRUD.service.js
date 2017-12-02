@@ -26,13 +26,18 @@
 		var addLike=function(sanphamid){
 			return $http.post('/api/sanpham/'+sanphamid+'/like');
 		};
+
+		var xemThemSanPhamByThoiGian=function(currentSoLuong){
+			return $http.get('/api/xemthem-thoigian?currentsoluong='+currentSoLuong);
+		}
 		return {
 			getSanPhamByDate:getSanPhamByDate,
 			getSanPhamById:getSanPhamById,
 			addReviewBySanPhamId:addReviewBySanPhamId,
 			gioHangByUserEmail:gioHangByUserEmail,
 			addGioHangByUserEmail:addGioHangByUserEmail,
-			addLike:addLike
+			addLike:addLike,
+			xemThemSanPhamByThoiGian:xemThemSanPhamByThoiGian
 		};
 	}
 })();

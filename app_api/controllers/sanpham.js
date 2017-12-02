@@ -14,7 +14,7 @@ exports.sanPhamByThoiGian=function(req,res){
 		return;
 	}
 
-	SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia loaiSanPham moTa rating reviews ')
+	SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia rating reviews ')
 	.exec(function(error,sanphams){
 		if(error){
 			return sendJsonRespone(res,400,error)
@@ -97,3 +97,34 @@ exports.like=function(req,res){
 	}
 };
 
+exports.xemThemByThoiGian=function(req,res){
+	if(req.query.currentsoluong){
+		var currentsoluong=parseInt(req.query.currentsoluong);
+		var soluong=currentsoluong + 12;
+		SanPham.find().sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia rating reviews')
+		.exec(function(error,sanphams){
+			if(error){
+				return sendJsonRespone(res,400,error)
+			}else if(!sanphams){
+				return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham nao"})
+			}
+			if(sanphams.length<soluong){	// da tim het san pham de xem them;
+				sanphams=sanphams.slice(currentsoluong,soluong);
+				sendJsonRespone(res,200,{
+					sanphams:sanphams,
+					buttonStatus:false
+				});
+			}else
+			{
+				sanphams=sanphams.slice(currentsoluong,soluong);
+				sendJsonRespone(res,200,{
+					sanphams:sanphams,
+					buttonStatus:true
+				});
+			}
+			
+		});
+	}else{
+		sendJsonRespone(res,404,{'message':'khong tim thay currentsoluong'});
+	}
+}

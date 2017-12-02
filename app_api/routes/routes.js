@@ -16,6 +16,7 @@ router.post('/user/:userEmail/giohang',user.addGioHangByUserEmail);
 
 //san pham
 router.get('/home',sanPham.sanPhamByThoiGian);
+router.get('/xemthem-thoigian',sanPham.xemThemByThoiGian);
 router.get('/sanpham/:idSanPham',sanPham.chiTietSanPham);
 
 router.post('/sanpham/:idSanPham/like',sanPham.like);

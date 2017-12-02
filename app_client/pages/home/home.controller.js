@@ -4,8 +4,9 @@
 	function homeCtr(dataCRUD){
 
 		var vm=this;
-
+		vm.buttonStatus=true;
 		vm.message='Đang load sản phẩm...';
+		vm.xemThemMessage='';
 
 		dataCRUD.getSanPhamByDate(12)
 		.then(function(respone){
@@ -18,6 +19,21 @@
 			console.log(err);
 		});
 		
-		
+		vm.xemThem=function(){
+			vm.xemThemMessage='Đang load sản phẩm...';
+			var currentSoLuong=vm.data.sanphams.length;
+			dataCRUD.xemThemSanPhamByThoiGian(currentSoLuong)
+			.then(function(respone){
+				for(var i=0;i<respone.data.sanphams.length;i++){
+					vm.data.sanphams.push(respone.data.sanphams[i]);
+				}
+				//alert(JSON.stringify(vm.data.sanphams));
+				vm.buttonStatus=respone.data.buttonStatus;
+				vm.xemThemMessage='';
+			});
+
+		}
+
+
 	}
 })();
