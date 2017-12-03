@@ -50,6 +50,38 @@
 			    	<li><a href="#" type="button" ng-show="vm.buttonStatus" ng-click="vm.xemThem()">Xem thêm hàng</a></li>
 				</ul>
 			</h4>
+			<hr>
+			<div class="row">
+				<h3 style="margin-top: 0; margin-bottom: 20px; margin-left: 10px">Sản phẩm bình luận nhiều nhất</h3>
+			</div>
+			<div class="row display-flex">
+				<div class="col-xs-6 col-md-3 text-center" ng-repeat="sanpham in vm.data.sanphamcomments | orderBy:'reviews.length':true">
+					<a href="/#!sanpham/{{sanpham._id}}"><img class="img-responsive img-rounded" ng-src='{{sanpham.tenFileAnh}}'></a>
+					<hr>
+					<strong>{{sanpham.tenSanPham}}</strong>
+					<h4 style="color: #ff6e25">{{sanpham.gia | formatPrice}}</h4>
+					<p>
+						<Strong style="color:#337ab7" rating-stars rating='sanpham.rating'></strong>
+					</p>
+					<h4><small>({{sanpham.reviews.length}} nhận xét)</small></h4>	
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<h3 style="margin-top: 0; margin-bottom: 20px; margin-left: 10px">Sản phẩm yêu thích nhất</h3>
+			</div>
+			<div class="row display-flex">
+				<div class="col-xs-6 col-md-3 text-center" ng-repeat="sanpham in vm.data.sanphamratings">
+					<a href="/#!sanpham/{{sanpham._id}}"><img class="img-responsive img-rounded" ng-src='{{sanpham.tenFileAnh}}'></a>
+					<hr>
+					<strong>{{sanpham.tenSanPham}}</strong>
+					<h4 style="color: #ff6e25">{{sanpham.gia | formatPrice}}</h4>
+					<p>
+						<Strong style="color:#337ab7" rating-stars rating='sanpham.rating'></strong>
+					</p>
+					<h4><small>({{sanpham.reviews.length}} nhận xét)</small></h4>	
+				</div>
+			</div>
 		</div>
 
 	</div>

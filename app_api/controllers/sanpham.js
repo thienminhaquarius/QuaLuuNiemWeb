@@ -19,10 +19,31 @@ exports.sanPhamByThoiGian=function(req,res){
 		if(error){
 			return sendJsonRespone(res,400,error)
 		}else if(!sanphams){
-			return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham nao"})
+			return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham thoi gian nao"})
 		}
-		
-		sendJsonRespone(res,200,sanphams);
+		SanPham.find().sort('-reviews').limit(8).select('tenSanPham tenFileAnh gia rating reviews ')
+		.exec(function(err,sanphamcomments){
+			if(error){
+				return sendJsonRespone(res,400,error)
+			}else if(!sanphamcomments){
+				return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham comments nao"})
+			}
+			SanPham.find().sort('-rating').limit(8).select('tenSanPham tenFileAnh gia rating reviews ')
+			.exec(function(err,sanphamratings){
+				if(error){
+					return sendJsonRespone(res,400,error)
+				}else if(!sanphamratings){
+					return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham ratings nao"})
+				}
+				sendJsonRespone(res,200,{
+					sanphams:sanphams,
+					sanphamcomments:sanphamcomments,
+					sanphamratings:sanphamratings
+				});
+			});
+
+		});
+	
 	});
 }
 
@@ -127,4 +148,37 @@ exports.xemThemByThoiGian=function(req,res){
 	}else{
 		sendJsonRespone(res,404,{'message':'khong tim thay currentsoluong'});
 	}
+};
+exports.sanPhamByLoai=function(req,res){
+	if(!req.query.currentsoluong){
+		return sendJsonRespone(res,404,{'message':'khong tim thay currentsoluong'});
+	}
+	if(!req.query.tenloaisanpham){
+		return sendJsonRespone(res,404,{'message':'khong tim thay tenloaisanpham'});
+	}
+	var currentsoluong=parseInt(req.query.currentsoluong);
+	var soluong=currentsoluong + 20;
+	SanPham.find({'loaiSanPham':req.query.tenloaisanpham}).sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia rating reviews')
+		.exec(function(error,sanphams){
+			if(error){
+				return sendJsonRespone(res,400,error)
+			}else if(!sanphams){
+				return sendJsonRespone(res,404,{"message":"Khong tim duoc san pham nao"})
+			}
+			if(sanphams.length<soluong){	// da tim het san pham de xem them;
+				sanphams=sanphams.slice(currentsoluong,soluong);
+				sendJsonRespone(res,200,{
+					sanphams:sanphams,
+					buttonStatus:false
+				});
+			}else
+			{
+				sanphams=sanphams.slice(currentsoluong,soluong);
+				sendJsonRespone(res,200,{
+					sanphams:sanphams,
+					buttonStatus:true
+				});
+			}
+			
+		});
 }

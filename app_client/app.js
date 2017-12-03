@@ -32,6 +32,11 @@ var config=function($routeProvider,$locationProvider)
 		controller:'muaNgay',
 		controllerAs:'vm'
 	})
+	.when('/sanpham-theoloai/:tenloaisanpham',{
+		templateUrl:'/pages/sanphamtheoloai/sanphamtheoloai.view.html',
+		controller:'sanphamtheoloaiCtr',
+		controllerAs:'vm'
+	})
 	;
 
 	$locationProvider.html5Mode({

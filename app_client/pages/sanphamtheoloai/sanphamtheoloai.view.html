@@ -1,0 +1,57 @@
+
+<div class="container">
+	<ol class="breadcrumb">
+		<li><a href="/">Trang chủ</a></li>
+		<li class="active">{{vm.loaiSanPham}}</li>
+	</ol>
+	<div class="row">
+		<div class="col-md-3" id="thoigianbanhang">
+			<div class="panel panel-info">
+				<div class="panel-heading text-center">
+					Thời gian bán hàng
+				</div>
+				<div class="panel-body">
+					<p><strong>Thời gian mở cửa</strong></p>
+					<p><li>Sáng: 08:30 - 11:00</li></p>
+					<p><li>Chiều: 13:30 - 18:00</li></p>
+					<p>Ngày mở cửa: Thứ 2 - Thứ 7</p>
+					<hr>
+					<p><strong>Thời gian bảo hành</strong></p>
+					<p><li>Sáng: 08:30 - 11:00</li></p>
+					<p><li>Chiều: 13:30 - 18:00</li></p>
+					<p>Ngày bảo hành: Thứ 2 - Thứ 6</p>
+					<hr>
+				</div>
+				<a href="#"><img class="img-thumbnail" src="/images/thanhtoan/vanchuyen.jpg"></a>
+				<a href="#" ><img class="img-thumbnail" src="/images/thanhtoan/quydinhbaohanh.jpg"></a>
+
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-9">
+			<p>{{vm.message}}</p>
+			<div class="row">
+				<h3 style="margin-top: 0; margin-bottom: 20px; margin-left: 10px">{{vm.loaiSanPham}}</h3>
+			</div>
+			<div class="row display-flex">
+				<div class="col-xs-6 col-md-3 text-center" ng-repeat="sanpham in vm.data.sanphams">
+					<a href="/#!sanpham/{{sanpham._id}}"><img class="img-responsive img-rounded" ng-src='{{sanpham.tenFileAnh}}'></a>
+					<hr>
+					<strong>{{sanpham.tenSanPham}}</strong>
+					<h4 style="color: #ff6e25">{{sanpham.gia | formatPrice}}</h4>
+					<p>
+						<Strong style="color:#337ab7" rating-stars rating='sanpham.rating'></strong>
+					</p>
+					<h4><small>({{sanpham.reviews.length}} nhận xét)</small></h4>	
+				</div>
+			</div>
+			<h4>
+				<ul class="pager">
+					<li><p>{{vm.xemThemMessage}}</p></li>
+			    	<li><a href="#" type="button" ng-show="vm.buttonStatus" ng-click="vm.xemThemHang()">Xem thêm hàng</a></li>
+				</ul>
+			</h4>
+			
+		</div>
+
+	</div>
+</div>

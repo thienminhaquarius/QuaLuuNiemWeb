@@ -30,6 +30,9 @@
 		var xemThemSanPhamByThoiGian=function(currentSoLuong){
 			return $http.get('/api/xemthem-thoigian?currentsoluong='+currentSoLuong);
 		}
+		var getSanPhamByLoai=function(tenloaisanpham,currentsoluong){
+			return $http.get('/api/sanpham-theoloai?currentsoluong='+currentsoluong+'&tenloaisanpham='+tenloaisanpham);
+		}
 		return {
 			getSanPhamByDate:getSanPhamByDate,
 			getSanPhamById:getSanPhamById,
@@ -37,7 +40,8 @@
 			gioHangByUserEmail:gioHangByUserEmail,
 			addGioHangByUserEmail:addGioHangByUserEmail,
 			addLike:addLike,
-			xemThemSanPhamByThoiGian:xemThemSanPhamByThoiGian
+			xemThemSanPhamByThoiGian:xemThemSanPhamByThoiGian,
+			getSanPhamByLoai:getSanPhamByLoai
 		};
 	}
 })();
