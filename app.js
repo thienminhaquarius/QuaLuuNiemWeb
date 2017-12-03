@@ -15,10 +15,6 @@ var routesApi=require('./app_api/routes/routes');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'server/views/pages'));
-app.set('view engine', 'ejs');
-
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -29,7 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname,'app_client')));
 app.use(passport.initialize());
 // router
+
 app.use('/api',routesApi);
+//default link
+app.use(function(req,res){
+  res.sendFile(path.join(__dirname,'app_client','index.html'));
+});
 //app.use('/sanpham/:id',routesApi);
 
 // catch 404 and forward to error handler
