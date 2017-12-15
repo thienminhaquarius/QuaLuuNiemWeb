@@ -1,5 +1,7 @@
 var mongoose=require('mongoose');
-var dbURL="mongodb://127.0.0.1:27017/QuaLuuNiem";
+//var dbURL="mongodb://127.0.0.1:27017/QuaLuuNiem";
+//mongodb://<dbuser>:<dbpassword>@ds141796.mlab.com:41796/qualuuniem
+var dbURL="mongodb://thienminh:coganghoctap1911@ds141796.mlab.com:41796/qualuuniem";
 
 mongoose.connect(dbURL,{useMongoClient:true});
 

@@ -157,7 +157,7 @@ exports.sanPhamByLoai=function(req,res){
 		return sendJsonRespone(res,404,{'message':'khong tim thay tenloaisanpham'});
 	}
 	var currentsoluong=parseInt(req.query.currentsoluong);
-	var soluong=currentsoluong + 20;
+	var soluong=currentsoluong + 12;
 	SanPham.find({'loaiSanPham':req.query.tenloaisanpham}).sort('-thoiGian').limit(soluong).select('tenSanPham tenFileAnh gia rating reviews')
 		.exec(function(error,sanphams){
 			if(error){
