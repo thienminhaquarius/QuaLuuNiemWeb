@@ -10,6 +10,7 @@
 	background: white;
 	margin-bottom: 20px;
 	padding-top: 5px;
+	overflow:hidden;
 	border: 1px solid #f0f0f0;
 }
 .row.display-flex > [class*='col-']:hover{
