@@ -10,9 +10,9 @@
 		dataCRUD.xemGioHang(data)
 		.then(function(respone){
 			vm.sanphams=respone.data;
-			alert('den day1');
+			//alert('den day1');
 		},function(err){
-			alert('den day2');
+			//alert('den day2');
 			console.log(err);
 		});
 
@@ -28,6 +28,7 @@
 			hinhThucThanhToan:'',
 			message:''
 		}
+		
 		if(vm.isLoggedIn){
 			var user=authentication.currentUser();
 			vm.formData.name=user.name;
