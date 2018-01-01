@@ -1,5 +1,6 @@
 var mongoose=require('mongoose');
 var SanPham=require('../models/SANPHAM');
+var async=require('async');
 
 var sendJsonRespone=function(res,status,content){
 	res.status(status);
@@ -181,4 +182,35 @@ exports.sanPhamByLoai=function(req,res){
 			}
 			
 		});
-}
+};
+exports.xemGioHang=function(req,res){
+	if(!req.body.arrayHang){
+		console.log('đenay');
+		return sendJsonRespone(res,400,{"message":"Khong tim duoc arrayHang"})
+	}else{
+		//sendJsonRespone(res,200,req.body.arrayHang);
+		var queryMotSanPham=function(idSanPham,callback){
+			
+			SanPham.findById(idSanPham).select('-reviews').exec(function(err,sanpham){
+				if(err){
+					return callback(err,null);
+				}
+				if(!sanpham){
+					return callback({"message":"khong tim duoc san pham"},null);
+				}else{
+					return callback(null,sanpham);
+				}
+			});
+		};
+		console.log('aray hang: '+req.body.arrayHang);
+		var arrayHang=JSON.parse(req.body.arrayHang);
+
+		
+		async.map(arrayHang,queryMotSanPham,function(err,results){
+			if(err){
+				return sendJsonRespone(res,400,err);
+			}
+			sendJsonRespone(res,201,results);
+		});
+	}
+};

@@ -15,6 +15,7 @@
 		//Khoi tao gio hang
 		if(!$rootScope.isLoggedIn){ // chua dang nhap thi dung fakeUser
 			$rootScope.gioHang=$rootScope.fakeUser.gioHang.length;
+
 		}else{	// da dang nhap thi dung user that
 			dataCRUD.gioHangByUserEmail($rootScope.currentUser.email)
 			.then(function(respone){

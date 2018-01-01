@@ -33,6 +33,9 @@
 		var getSanPhamByLoai=function(tenloaisanpham,currentsoluong){
 			return $http.get('/api/sanpham-theoloai?currentsoluong='+currentsoluong+'&tenloaisanpham='+tenloaisanpham);
 		}
+		var xemGioHang=function(data){
+			return $http.post('/api/giohang',data);
+		}
 		return {
 			getSanPhamByDate:getSanPhamByDate,
 			getSanPhamById:getSanPhamById,
@@ -41,7 +44,8 @@
 			addGioHangByUserEmail:addGioHangByUserEmail,
 			addLike:addLike,
 			xemThemSanPhamByThoiGian:xemThemSanPhamByThoiGian,
-			getSanPhamByLoai:getSanPhamByLoai
+			getSanPhamByLoai:getSanPhamByLoai,
+			xemGioHang:xemGioHang
 		};
 	}
 })();

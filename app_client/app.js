@@ -37,6 +37,11 @@ var config=function($routeProvider,$locationProvider)
 		controller:'sanphamtheoloaiCtr',
 		controllerAs:'vm'
 	})
+	.when('/giohang',{
+		templateUrl:'/pages/giohang/giohang.view.html',
+		controller:'gioHang',
+		controllerAs:'vm'
+	})
 	;
 
 	$locationProvider.html5Mode({

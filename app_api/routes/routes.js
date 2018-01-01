@@ -26,6 +26,8 @@ router.post('/sanpham/:idSanPham/review',auth,reviews.reviewCreateOne);
 
 router.post('/register',authCtr.register);
 router.post('/login',authCtr.login);
+//gio hang
+router.post('/giohang',sanPham.xemGioHang);
 
 
 module.exports=router;
